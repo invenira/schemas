@@ -1,0 +1,285 @@
+scalar Date
+scalar Record
+scalar Void
+scalar MetricType
+scalar MongoIdScalar
+
+"""
+A metric that an Activity Provider reports for a specific activity, per user.
+"""
+type MetricGQLSchema {
+    "The Metric Name."
+    name: String!,
+
+    "The Metric Description."
+    description: String!,
+
+    "The Metric Type, should be a Zod type: ['string', 'number', 'boolean', 'bigint', 'date', 'arrayAny', 'arrayNumber', 'arrayString', 'objectAny', 'recordAny']"
+    type: MetricType!,
+}
+
+"""
+An Activity provided by an Activity Provider.
+"""
+type ActivityGQLSchema {
+    "The internal unique Activity ID."
+    _id: MongoIdScalar!,
+
+    "The unique Activity Name."
+    name: String!,
+
+    "The Activity Description."
+    description: String!,
+
+    "The Activity Configuration Parameters."
+    parameters: Record!,
+
+    "The timestamp when the Activity was created."
+    createdAt: Date!,
+
+    "The system user which created the Activity."
+    createdBy: String!,
+
+    "Then timestamp when the Activity was last modified."
+    updatedAt: Date!,
+
+    "The system user which last modified the Activity."
+    updatedBy: String!
+}
+
+"""
+The request payload to create a new Activity.
+"""
+input CreateActivityInput {
+    "The unique Activity Name."
+    name: String!,
+
+    "The Activity Description."
+    description: String!,
+
+    "The Activity Configuration Parameters."
+    parameters: Record!,
+}
+
+"""
+An Activity Provider.
+"""
+type ActivityProviderGQLSchema {
+    "The internal unique Activity Provider ID."
+    _id: MongoIdScalar!,
+
+    "The unique Activity Provider Name."
+    name: String!,
+
+    "The Activity Provider Description."
+    description: String!,
+
+    "The Activity Provider base URl."
+    url: String!,
+
+    "The list of Activities created for this Activity Provider."
+    activities: [ActivityGQLSchema!]!,
+
+    "The timestamp when the Activity Provider was created."
+    createdAt: Date!,
+
+    "The system user which created the Activity Provider."
+    createdBy: String!,
+
+    "Then timestamp when the Activity Provider was last modified."
+    updatedAt: Date!,
+
+    "The system user which last modified the Activity Provider."
+    updatedBy: String!
+}
+
+"""
+The Configuration Interface URL.
+"""
+type ConfigInterfaceGQLSchema {
+    "The Configuration Interface URL."
+    url: String!,
+}
+
+"""
+The request payload to create a new Activity Provider.
+"""
+input CreateActivityProviderInput {
+    "The unique Activity Provider Name."
+    name: String!,
+
+    "The Activity Provider Description."
+    description: String!,
+
+    "The Activity Provider base URl."
+    url: String!,
+}
+
+"""
+An Inventive Activity Plan Goal. A Goal is a value calculated based on a user provider mathematical formula.
+Valid formulas are any formula accepted by mathjs.
+"""
+type GoalGQLSchema {
+    "The internal unique Goal ID."
+    _id: MongoIdScalar!,
+
+    "The unique Goal Name."
+    name: String!,
+
+    "The Goal Description."
+    description: String!,
+
+    "The Goal mathematical formula."
+    formula: String!,
+
+    "The 100% completion target value."
+    targetValue: Float!,
+
+    "The timestamp when the Goal was created."
+    createdAt: Date!,
+
+    "The system user which created the Goal."
+    createdBy: String!,
+
+    "Then timestamp when the Goal was last modified."
+    updatedAt: Date!,
+
+    "The system user which last modified the Goal."
+    updatedBy: String!
+}
+
+"""
+The request payload to create a new Goal.
+"""
+input CreateGoalInput {
+    "The unique Goal Name."
+    name: String!,
+
+    "The Goal Description."
+    description: String!,
+
+    "The Goal mathematical formula."
+    formula: String!,
+
+    "The 100% completion target value."
+    targetValue: Float!,
+}
+
+"""
+An Inventive Activity Plan (IAP). An IAP is a group of Activities that the end-user can execute.
+The IAP contains Goals that are calculated out of Metrics provided by the Activity Providers for each Activity.
+"""
+type IAPGQLSchema {
+    "The internal unique IAP ID."
+    _id: MongoIdScalar!,
+
+    "The unique IAP Name."
+    name: String!,
+
+    "The IAP Description."
+    description: String!,
+
+    "The list of Activity Providers used by the IAP"
+    activityProviders: [ActivityProviderGQLSchema!]!,
+
+    """
+    Weather this IAP is deployed or not. Being deployed means that the system has engaged with all Activity Providers to
+    deploy the activities.
+    """
+    isDeployed: Boolean!,
+
+    "The deploy URL for each activity"
+    deployUrls: Record!,
+
+    "The list of Goals included in the IAP"
+    goals: [GoalGQLSchema!]!,
+
+    "The timestamp when the IAP was created."
+    createdAt: Date!,
+
+    "The system user which created the IAP."
+    createdBy: String!,
+
+    "Then timestamp when the IAP was last modified."
+    updatedAt: Date!,
+
+    "The system user which last modified the IAP."
+    updatedBy: String!
+}
+
+"""
+The request payload to create a new IAP.
+"""
+input CreateIAPInput {
+    "The unique IAP Name."
+    name: String!,
+
+    "The IAP Description."
+    description: String!,
+}
+
+"""
+The request payload to add an activity to an IAP.
+"""
+input AddActivityToIapInput {
+    "The Activity ID to add to the IAP"
+    activityId: String!,
+}
+
+type Query {
+    "Get a list of all Activity Providers"
+    getActivityProviders: [ActivityProviderGQLSchema!]!
+
+    "Find an Activity Provider for the given Id"
+    getActivityProvider(apId: MongoIdScalar!): ActivityProviderGQLSchema!
+
+    "Find a list of Activities in an Activity Provider"
+    getActivityProviderActivities(apId: MongoIdScalar!): [ActivityGQLSchema!]!
+
+    "Find the Activity Configuration Interface URL for the given Activity Provider Id"
+    getConfigurationInterfaceUrl(apId: MongoIdScalar!): ConfigInterfaceGQLSchema!
+
+    "Find the Activity Parameters for the given Id"
+    getConfigurationParameters(apId: MongoIdScalar!): [String!]!
+
+    "Get a list of all Activities"
+    getActivities: [ActivityGQLSchema!]!
+
+    "Find an Activity for the given Id"
+    getActivity(activityId: MongoIdScalar!): ActivityGQLSchema!
+
+    "Get a list of all Inventive Activity Plans"
+    getIAPs: [IAPGQLSchema!]!,
+
+    "Find an Inventive Activity Plan for the given Id"
+    getIAP(iapId: MongoIdScalar!): IAPGQLSchema!,
+}
+
+type Mutation {
+    "Create a new Activity Provider within an Inventive Activity Plan"
+    createActivityProvider(iapId: MongoIdScalar!, createActivityProviderInput: CreateActivityProviderInput!): ActivityProviderGQLSchema!
+
+    "Find and remove the Activity Provider with the given Id. Activity Providers with active Activities can't be deleted."
+    removeActivityProvider(apId: MongoIdScalar!): Void
+
+    "Create a new Activity using the given Activity Provider within an Inventive Activity Plan"
+    createActivity(apId: MongoIdScalar!, createActivityInput: CreateActivityInput!): ActivityGQLSchema!
+
+    "Find and remove the Activity with the given Id. Activities which their metrics are used in any goal, can't be deleted."
+    removeActivity(activityId: MongoIdScalar!): Void
+
+    "Create a Goal within an Inventive Activity Plan"
+    createGoal(iapId: MongoIdScalar!, createGoalInput: CreateGoalInput!): GoalGQLSchema!
+
+    "Remove a Goal from an Inventive Activity Plan"
+    removeGoal(goalId: MongoIdScalar!): Void
+
+    "Create an Inventive Activity Plan"
+    createIap(createIapInput: CreateIAPInput!): IAPGQLSchema!
+
+    "Remove an Inventive Activity Plan"
+    removeIap(iapId: MongoIdScalar!): Void
+
+    "Deploys the Inventive Activity Plan. All Activities are deployed in their Activity providers."
+    deployIap(iapId: MongoIdScalar!): Void
+}

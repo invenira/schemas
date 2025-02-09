@@ -1,0 +1,44 @@
+{
+  "name": "@invenira/schemas",
+  "version": "0.0.1",
+  "description": "Inven!RA Schemas and TypeScript Types",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "ts-node src/generate-typings && openapi-zod-client src/invenira_activity_provider.yaml -o ./src/ap/ap-client.ts -p .prettierrc --export-schemas --implicit-required --with-description --with-docs --api-client-name ActivityProviderAPI --all-readonly --export-types --strict-objects && tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"./src/**/*.ts\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invenira/schemas.git"
+  },
+  "author": "Hugo Gonçalves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/invenira/schemas/issues"
+  },
+  "homepage": "https://github.com/invenira/schemas#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "openapi-zod-client": "^1.18.2",
+    "prettier": "3.4.2",
+    "swagger-typescript-api": "^13.0.23",
+    "ts-morph": "^25.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.23.0"
+  },
+  "dependencies": {
+    "@nestjs/graphql": "^13.0.2",
+    "@zodios/core": "^10.9.6",
+    "axios": "^1.7.9",
+    "graphql": "^16.10.0",
+    "mongoose": "^8.10.0",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
