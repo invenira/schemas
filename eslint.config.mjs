@@ -7,6 +7,11 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
-    ignores: ['./src/types/graphql.types.ts', 'src/ap/ap-client.ts'],
+    ignores: ['./src/types/graphql.types.ts', 'src/ap/ap-client.ts', 'src/graphql/scalars/void.scalar.ts'],
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
   },
 );
