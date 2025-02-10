@@ -37,8 +37,5 @@
     "graphql": "^16.10.0",
     "mongoose": "^8.10.0",
     "zod": "^3.24.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   }
 }
