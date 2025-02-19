@@ -7,7 +7,9 @@
   "scripts": {
     "build": "ts-node src/generate-typings && openapi-zod-client src/invenira_activity_provider.yaml -o ./src/ap/ap-client.ts -p .prettierrc --export-schemas --implicit-required --with-description --with-docs --api-client-name ActivityProviderAPI --all-readonly --export-types --strict-objects && tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint \"./src/**/*.ts\" --fix"
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "lint": "eslint \"./src/**/*.ts\" --fix",
+    "lint:check": "eslint \"./src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,7 @@
     "@eslint/js": "^9.19.0",
     "eslint": "^9.19.0",
     "openapi-zod-client": "^1.18.2",
-    "prettier": "3.4.2",
+    "prettier": "^3.5.1",
     "swagger-typescript-api": "^13.0.23",
     "ts-morph": "^25.0.0",
     "ts-node": "^10.9.2",

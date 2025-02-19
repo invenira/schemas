@@ -3,8 +3,7 @@ import { Kind, ValueNode } from 'graphql';
 import { GraphQLException } from '@nestjs/graphql/dist/exceptions';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-@Scalar('Record', () => {
-})
+@Scalar('Record', () => {})
 export class RecordScalar implements CustomScalar<any, Record<string, any>> {
   name = 'Record';
   description = 'Custom scalar type for a Record<string, any>';

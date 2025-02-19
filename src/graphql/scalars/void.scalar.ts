@@ -6,13 +6,9 @@ export class VoidScalar implements CustomScalar<any, void> {
   name = 'Void';
   description = 'Void custom scalar type';
 
-  parseValue(value: string): void {
+  parseValue(value: string): void {}
 
-  }
+  serialize(value: void): void {}
 
-  serialize(value: void): void {
-  }
-
-  parseLiteral(ast: ValueNode): any {
-  }
+  parseLiteral(ast: ValueNode): any {}
 }

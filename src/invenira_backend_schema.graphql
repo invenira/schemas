@@ -233,6 +233,9 @@ type Query {
     "Find an Activity Provider for the given Id"
     getActivityProvider(apId: MongoIdScalar!): ActivityProviderGQLSchema!
 
+    "Find a list of mandatory fields to scrape from the configuration interface"
+    getActivityProviderRequiredFields(apId: MongoIdScalar!): [String!]!
+
     "Find a list of Activities in an Activity Provider"
     getActivityProviderActivities(apId: MongoIdScalar!): [ActivityGQLSchema!]!
 
@@ -253,6 +256,9 @@ type Query {
 
     "Find an Inventive Activity Plan for the given Id"
     getIAP(iapId: MongoIdScalar!): IAPGQLSchema!,
+
+    "Find all available metrics for the given IAP id"
+    getIAPAvailableMetrics(iapId: MongoIdScalar!):[MetricGQLSchema!]!
 }
 
 type Mutation {
