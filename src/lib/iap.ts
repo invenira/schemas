@@ -33,6 +33,7 @@ export const CreateIAPSchema = z
   })
   .strict();
 
-export type CreateIAP = Readonly<Required<z.infer<typeof CreateIAPSchema>>> & Metadata;
+export type CreateIAP = Readonly<Required<z.infer<typeof CreateIAPSchema>>> &
+  Metadata;
 
 type TestSchema1 = Validate<Schema<CreateIAP, CreateIAPInput>>;

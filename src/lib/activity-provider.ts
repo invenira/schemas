@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import { ActivitySchema } from './activity';
 import { Metadata, Validate, Schema, MongoIdSchema } from './base';
-import { ActivityProviderGQLSchema, CreateActivityProviderInput } from '../types/graphql.types';
+import {
+  ActivityProviderGQLSchema,
+  CreateActivityProviderInput,
+} from '../types/graphql.types';
 
 export const ActivityProviderSchema = z
   .object({
@@ -17,7 +20,10 @@ export const ActivityProviderSchema = z
   })
   .strict();
 
-export type ActivityProvider = Readonly<Required<z.infer<typeof ActivityProviderSchema>>> & Metadata;
+export type ActivityProvider = Readonly<
+  Required<z.infer<typeof ActivityProviderSchema>>
+> &
+  Metadata;
 
 type TestSchema = Validate<Schema<ActivityProvider, ActivityProviderGQLSchema>>;
 
@@ -33,8 +39,11 @@ export const CreateActivityProviderSchema = z
   })
   .strict();
 
-export type CreateActivityProvider = Readonly<Required<
-  z.infer<typeof CreateActivityProviderSchema>
->> & Metadata;
+export type CreateActivityProvider = Readonly<
+  Required<z.infer<typeof CreateActivityProviderSchema>>
+> &
+  Metadata;
 
-type TestSchema1 = Validate<Schema<CreateActivityProvider, CreateActivityProviderInput>>;
+type TestSchema1 = Validate<
+  Schema<CreateActivityProvider, CreateActivityProviderInput>
+>;

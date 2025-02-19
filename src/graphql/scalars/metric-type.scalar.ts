@@ -3,7 +3,18 @@ import { ValueNode } from 'graphql';
 import { Kind } from 'graphql/index';
 import { GraphQLException } from '@nestjs/graphql/dist/exceptions';
 
-const metricTypes = ['string', 'number', 'boolean', 'bigint', 'date', 'arrayAny', 'arrayNumber', 'arrayString', 'objectAny', 'recordAny'];
+const metricTypes = [
+  'string',
+  'number',
+  'boolean',
+  'bigint',
+  'date',
+  'arrayAny',
+  'arrayNumber',
+  'arrayString',
+  'objectAny',
+  'recordAny',
+];
 
 @Scalar('MetricType', () => Date)
 export class MetricTypeScalar implements CustomScalar<string, string> {

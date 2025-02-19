@@ -4,7 +4,9 @@ import { GraphQLException } from '@nestjs/graphql/dist/exceptions';
 import { Types } from 'mongoose';
 
 @Scalar('MongoIdScalar', () => Types.ObjectId)
-export class MongoIdCustomScalar implements CustomScalar<string, Types.ObjectId> {
+export class MongoIdCustomScalar
+  implements CustomScalar<string, Types.ObjectId>
+{
   name = 'MongoIdScalar';
   description = 'Date custom scalar type';
 

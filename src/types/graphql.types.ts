@@ -100,6 +100,8 @@ export abstract class IQuery {
 
     abstract getActivityProvider(apId: MongoIdScalar): ActivityProviderGQLSchema | Promise<ActivityProviderGQLSchema>;
 
+    abstract getActivityProviderRequiredFields(apId: MongoIdScalar): string[] | Promise<string[]>;
+
     abstract getActivityProviderActivities(apId: MongoIdScalar): ActivityGQLSchema[] | Promise<ActivityGQLSchema[]>;
 
     abstract getConfigurationInterfaceUrl(apId: MongoIdScalar): ConfigInterfaceGQLSchema | Promise<ConfigInterfaceGQLSchema>;
@@ -113,6 +115,8 @@ export abstract class IQuery {
     abstract getIAPs(): IAPGQLSchema[] | Promise<IAPGQLSchema[]>;
 
     abstract getIAP(iapId: MongoIdScalar): IAPGQLSchema | Promise<IAPGQLSchema>;
+
+    abstract getIAPAvailableMetrics(iapId: MongoIdScalar): MetricGQLSchema[] | Promise<MetricGQLSchema[]>;
 }
 
 export abstract class IMutation {

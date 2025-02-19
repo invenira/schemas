@@ -24,12 +24,16 @@ export const fieldTypeMap: Record<string, z.ZodTypeAny> = {
   recordAny: z.record(z.any()),
 };
 
-export function createDynamicSchema(fields: z.infer<typeof schemas.ConfigParametersResponse>) {
-  const shape = fields.reduce((acc, field) => {
-    acc[field.name] = fieldTypeMap[field.type] || z.any();
-    return acc;
-  }, {} as Record<string, z.ZodTypeAny>);
+export function createDynamicSchema(
+  fields: z.infer<typeof schemas.ConfigParametersResponse>,
+) {
+  const shape = fields.reduce(
+    (acc, field) => {
+      acc[field.name] = fieldTypeMap[field.type] || z.any();
+      return acc;
+    },
+    {} as Record<string, z.ZodTypeAny>,
+  );
 
   return z.object(shape);
 }
-

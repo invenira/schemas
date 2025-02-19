@@ -1,3 +1,12 @@
 .github
 .idea
 node_modules
+src
+.gitignore
+.prettierignore
+.prettierrc
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+eslint.config.mjs
+SECURITY.md
+package-lock.json

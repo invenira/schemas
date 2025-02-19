@@ -29,6 +29,7 @@ export const CreateGoalSchema = z
   })
   .strict();
 
-export type CreateGoal = Readonly<Required<z.infer<typeof CreateGoalSchema>>> & Metadata;
+export type CreateGoal = Readonly<Required<z.infer<typeof CreateGoalSchema>>> &
+  Metadata;
 
 type TestSchema1 = Validate<Schema<CreateGoal, CreateGoalInput>>;

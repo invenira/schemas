@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { Metadata, Validate, Schema, MongoIdSchema } from './base';
-import { ActivityGQLSchema, ConfigInterfaceGQLSchema, CreateActivityInput } from '../types/graphql.types';
+import {
+  ActivityGQLSchema,
+  ConfigInterfaceGQLSchema,
+  CreateActivityInput,
+} from '../types/graphql.types';
 
 export const ActivitySchema = z
   .object({
@@ -15,7 +19,8 @@ export const ActivitySchema = z
   })
   .strict();
 
-export type Activity = Readonly<Required<z.infer<typeof ActivitySchema>>> & Metadata;
+export type Activity = Readonly<Required<z.infer<typeof ActivitySchema>>> &
+  Metadata;
 
 type TestSchema = Validate<Schema<Activity, ActivityGQLSchema>>;
 
@@ -27,7 +32,10 @@ export const EnrichedActivitySchema = z
   })
   .strict();
 
-export type EnrichedActivity = Readonly<Required<z.infer<typeof EnrichedActivitySchema>>> & Metadata;
+export type EnrichedActivity = Readonly<
+  Required<z.infer<typeof EnrichedActivitySchema>>
+> &
+  Metadata;
 
 export type EnrichedActivityKey = keyof EnrichedActivity;
 
@@ -39,7 +47,10 @@ export const CreateActivitySchema = z
   })
   .strict();
 
-export type CreateActivity = Readonly<Required<z.infer<typeof CreateActivitySchema>>> & Metadata;
+export type CreateActivity = Readonly<
+  Required<z.infer<typeof CreateActivitySchema>>
+> &
+  Metadata;
 
 type TestSchema1 = Validate<Schema<CreateActivity, CreateActivityInput>>;
 
@@ -49,6 +60,8 @@ export const ConfigInterfaceSchema = z
   })
   .strict();
 
-export type ConfigInterface = Readonly<Required<z.infer<typeof ConfigInterfaceSchema>>>;
+export type ConfigInterface = Readonly<
+  Required<z.infer<typeof ConfigInterfaceSchema>>
+>;
 
 type TestSchema2 = Validate<Schema<ConfigInterface, ConfigInterfaceGQLSchema>>;

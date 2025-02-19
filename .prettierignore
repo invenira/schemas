@@ -2,3 +2,5 @@
 build
 coverage
 dist
+node_modules
+src/types/graphql.types.ts
