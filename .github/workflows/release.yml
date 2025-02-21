@@ -1,17 +1,17 @@
 name: RELEASE
 
 on:
-  release:
-    types: [ published ]
+  push:
+    branches:
+      - main
 
 jobs:
   release:
-    name: Build and Publish NPM Package
+    name: Run semantic-release
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       packages: write
-      contents: read
-      attestations: write
       id-token: write
     steps:
       - uses: actions/checkout@v4.2.2
@@ -21,12 +21,13 @@ jobs:
           node-version: 22
           cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
       - run: npm run build
       - run: npm run format
       - run: npm run lint
 
-      - uses: JS-DevTools/npm-publish@v3.1.1
-        with:
-          access: 'public'
-          token: ${{ secrets.NPM_TOKEN }}
+      # Run semantic-release which will determine the next version, update package.json, create a Git tag & release, and publish to npm.
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
