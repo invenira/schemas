@@ -29,5 +29,5 @@ jobs:
       # Run semantic-release which will determine the next version, update package.json, create a Git tag & release, and publish to npm.
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
