@@ -7,6 +7,8 @@ src/lib
 src/types
 src/generate-typings.ts
 src/index.ts
+src/generate-typings.js
+src/index.js
 .gitignore
 .prettierignore
 .prettierrc
