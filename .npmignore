@@ -18,3 +18,4 @@ eslint.config.mjs
 SECURITY.md
 package-lock.json
 tsconfig.json
+.releaserc.json
