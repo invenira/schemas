@@ -58,7 +58,7 @@ export class ActivityProviderGQLSchema {
     name: string;
     description: string;
     url: string;
-    activities: ActivityGQLSchema[];
+    activityIds: MongoIdScalar[];
     createdAt: Date;
     createdBy: string;
     updatedAt: Date;
@@ -85,10 +85,10 @@ export class IAPGQLSchema {
     _id: MongoIdScalar;
     name: string;
     description: string;
-    activityProviders: ActivityProviderGQLSchema[];
+    activityProviderIds: MongoIdScalar[];
     isDeployed: boolean;
     deployUrls: Record;
-    goals: GoalGQLSchema[];
+    goalIds: MongoIdScalar[];
     createdAt: Date;
     createdBy: string;
     updatedAt: Date;

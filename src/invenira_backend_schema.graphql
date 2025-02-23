@@ -77,8 +77,8 @@ type ActivityProviderGQLSchema {
     "The Activity Provider base URl."
     url: String!,
 
-    "The list of Activities created for this Activity Provider."
-    activities: [ActivityGQLSchema!]!,
+    "The list of Activity Ids created for this Activity Provider."
+    activityIds: [MongoIdScalar!]!,
 
     "The timestamp when the Activity Provider was created."
     createdAt: Date!,
@@ -179,8 +179,8 @@ type IAPGQLSchema {
     "The IAP Description."
     description: String!,
 
-    "The list of Activity Providers used by the IAP"
-    activityProviders: [ActivityProviderGQLSchema!]!,
+    "The list of Activity Provider Ids used by the IAP"
+    activityProviderIds: [MongoIdScalar!]!,
 
     """
     Weather this IAP is deployed or not. Being deployed means that the system has engaged with all Activity Providers to
@@ -191,8 +191,8 @@ type IAPGQLSchema {
     "The deploy URL for each activity"
     deployUrls: Record!,
 
-    "The list of Goals included in the IAP"
-    goals: [GoalGQLSchema!]!,
+    "The list of Goal Ids included in the IAP"
+    goalIds: [MongoIdScalar!]!,
 
     "The timestamp when the IAP was created."
     createdAt: Date!,

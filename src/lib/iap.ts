@@ -1,18 +1,16 @@
 import { z } from 'zod';
 import { Metadata, MongoIdSchema, Schema, Validate } from './base';
-import { ActivityProviderSchema } from './activity-provider';
 import { CreateIAPInput, IAPGQLSchema } from '../types/graphql.types';
-import { GoalSchema } from './goal';
 
 export const IAPSchema = z
   .object({
     _id: MongoIdSchema,
     name: z.string().nonempty(),
     description: z.string().nonempty(),
-    activityProviders: z.array(ActivityProviderSchema),
+    activityProviderIds: z.array(MongoIdSchema),
     isDeployed: z.boolean(),
     deployUrls: z.record(z.string(), z.string().url()),
-    goals: z.array(GoalSchema),
+    goalIds: z.array(MongoIdSchema),
     createdAt: z.date(),
     createdBy: z.string().nonempty(),
     updatedAt: z.date(),
