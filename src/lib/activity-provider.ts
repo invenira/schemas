@@ -12,7 +12,7 @@ export const ActivityProviderSchema = z
     name: z.string().nonempty(),
     description: z.string().nonempty(),
     url: z.string().url(),
-    activities: z.array(ActivitySchema),
+    activityIds: z.array(MongoIdSchema),
     createdAt: z.date(),
     createdBy: z.string().nonempty(),
     updatedAt: z.date(),
