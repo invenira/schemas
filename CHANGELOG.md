@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/invenira/schemas/compare/v1.0.2...v1.0.3) (2025-02-24)
+
+
+### Bug Fixes
+
+* update mutations to match entity separation ([82aa439](https://github.com/invenira/schemas/commit/82aa439bb212e4808e5b66b05afff89bbd423092))
+
 ## [1.0.2](https://github.com/invenira/schemas/compare/v1.0.1...v1.0.2) (2025-02-24)
 
 
