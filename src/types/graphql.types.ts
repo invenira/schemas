@@ -121,11 +121,11 @@ export abstract class IQuery {
 }
 
 export abstract class IMutation {
-    abstract createActivityProvider(iapId: MongoIdScalar, createActivityProviderInput: CreateActivityProviderInput): ActivityProviderGQLSchema | Promise<ActivityProviderGQLSchema>;
+    abstract createActivityProvider(createActivityProviderInput: CreateActivityProviderInput): ActivityProviderGQLSchema | Promise<ActivityProviderGQLSchema>;
 
     abstract removeActivityProvider(apId: MongoIdScalar): Nullable<Void> | Promise<Nullable<Void>>;
 
-    abstract createActivity(apId: MongoIdScalar, createActivityInput: CreateActivityInput): ActivityGQLSchema | Promise<ActivityGQLSchema>;
+    abstract createActivity(iapId: MongoIdScalar, createActivityInput: CreateActivityInput): ActivityGQLSchema | Promise<ActivityGQLSchema>;
 
     abstract removeActivity(activityId: MongoIdScalar): Nullable<Void> | Promise<Nullable<Void>>;
 

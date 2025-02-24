@@ -266,13 +266,13 @@ type Query {
 
 type Mutation {
     "Create a new Activity Provider within an Inventive Activity Plan"
-    createActivityProvider(iapId: MongoIdScalar!, createActivityProviderInput: CreateActivityProviderInput!): ActivityProviderGQLSchema!
+    createActivityProvider(createActivityProviderInput: CreateActivityProviderInput!): ActivityProviderGQLSchema!
 
     "Find and remove the Activity Provider with the given Id. Activity Providers with active Activities can't be deleted."
     removeActivityProvider(apId: MongoIdScalar!): Void
 
-    "Create a new Activity using the given Activity Provider within an Inventive Activity Plan"
-    createActivity(apId: MongoIdScalar!, createActivityInput: CreateActivityInput!): ActivityGQLSchema!
+    "Create a new Activity within an Inventive Activity Plan"
+    createActivity(iapId: MongoIdScalar!, createActivityInput: CreateActivityInput!): ActivityGQLSchema!
 
     "Find and remove the Activity with the given Id. Activities which their metrics are used in any goal, can't be deleted."
     removeActivity(activityId: MongoIdScalar!): Void
