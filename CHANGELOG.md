@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/invenira/schemas/compare/v1.0.0...v1.0.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* entity relations ([c028913](https://github.com/invenira/schemas/commit/c028913eecb661a66878fbbea3154d1dd78ffa4a))
+
 # [1.0.0](https://github.com/invenira/schemas/compare/v0.1.2...v1.0.0) (2025-02-24)
 
 
