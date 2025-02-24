@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/invenira/schemas/compare/v1.0.1...v1.0.2) (2025-02-24)
+
+
+### Bug Fixes
+
+* missing field for activity creation DTO ([c619750](https://github.com/invenira/schemas/commit/c6197507d090038df5f080321615232cf3a2acd9))
+
 ## [1.0.1](https://github.com/invenira/schemas/compare/v1.0.0...v1.0.1) (2025-02-24)
 
 
