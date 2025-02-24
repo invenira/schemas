@@ -62,6 +62,9 @@ input CreateActivityInput {
 
     "The Activity Configuration Parameters."
     parameters: Record!,
+
+    "The Activity Provider id that provides this Activity"
+    activityProviderId: MongoIdScalar!,
 }
 
 """

@@ -12,6 +12,7 @@ export class CreateActivityInput {
     name: string;
     description: string;
     parameters: Record;
+    activityProviderId: MongoIdScalar;
 }
 
 export class CreateActivityProviderInput {

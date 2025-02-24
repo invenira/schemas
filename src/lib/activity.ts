@@ -45,6 +45,7 @@ export const CreateActivitySchema = z
     name: z.string().nonempty(),
     description: z.string().nonempty(),
     parameters: z.record(z.string(), z.any()),
+    activityProviderId: MongoIdSchema,
   })
   .strict();
 
