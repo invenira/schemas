@@ -7,7 +7,7 @@ export const IAPSchema = z
     _id: MongoIdSchema,
     name: z.string().nonempty(),
     description: z.string().nonempty(),
-    activityProviderIds: z.array(MongoIdSchema),
+    activityIds: z.array(MongoIdSchema),
     isDeployed: z.boolean(),
     deployUrls: z.record(z.string(), z.string().url()),
     goalIds: z.array(MongoIdSchema),

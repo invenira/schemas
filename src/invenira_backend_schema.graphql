@@ -34,6 +34,9 @@ type ActivityGQLSchema {
     "The Activity Configuration Parameters."
     parameters: Record!,
 
+    "The Activity Provider id that provides this Activity"
+    activityProviderId: MongoIdScalar!,
+
     "The timestamp when the Activity was created."
     createdAt: Date!,
 
@@ -76,9 +79,6 @@ type ActivityProviderGQLSchema {
 
     "The Activity Provider base URl."
     url: String!,
-
-    "The list of Activity Ids created for this Activity Provider."
-    activityIds: [MongoIdScalar!]!,
 
     "The timestamp when the Activity Provider was created."
     createdAt: Date!,
@@ -179,8 +179,8 @@ type IAPGQLSchema {
     "The IAP Description."
     description: String!,
 
-    "The list of Activity Provider Ids used by the IAP"
-    activityProviderIds: [MongoIdScalar!]!,
+    "The list of Activity Ids included in the IAP"
+    activityIds: [MongoIdScalar!]!,
 
     """
     Weather this IAP is deployed or not. Being deployed means that the system has engaged with all Activity Providers to

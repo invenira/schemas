@@ -12,6 +12,7 @@ export const ActivitySchema = z
     name: z.string().nonempty(),
     description: z.string().nonempty(),
     parameters: z.record(z.string(), z.any()),
+    activityProviderId: MongoIdSchema,
     createdAt: z.date(),
     createdBy: z.string().nonempty(),
     updatedAt: z.date(),
