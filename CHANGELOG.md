@@ -1,3 +1,11 @@
+# [1.0.0](https://github.com/invenira/schemas/compare/v0.1.2...v1.0.0) (2025-02-24)
+
+
+### Bug Fixes
+
+* CI ([fdeed88](https://github.com/invenira/schemas/commit/fdeed883fecbbca4d480f955ec62012b08051971))
+* CI ([8eed6c4](https://github.com/invenira/schemas/commit/8eed6c438f702621a38b2dcd0db66d91e285e96d))
+
 ## [0.1.2](https://github.com/invenira/schemas/compare/v0.1.1...v0.1.2) (2025-02-21)
 
 
