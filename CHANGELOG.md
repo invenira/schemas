@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/invenira/schemas/compare/v1.0.3...v1.1.0) (2025-02-25)
+
+
+### Bug Fixes
+
+* format ([44097cd](https://github.com/invenira/schemas/commit/44097cd827ae95704bf5df414b40adc47c78d1e9))
+* incorrect type ([17e8d3f](https://github.com/invenira/schemas/commit/17e8d3f91a8d821f1727d534fd674df086172cb8))
+* update schemas to match GraphQL API ([17ce4bf](https://github.com/invenira/schemas/commit/17ce4bf96b1e7b94df985737290768f7dd2eca11))
+
+
+### Features
+
+* decouple GraphQL API from persistence ([b4984a7](https://github.com/invenira/schemas/commit/b4984a70998e1703ce4ac73ab0a9c6382ac0e6ee))
+
 ## [1.0.3](https://github.com/invenira/schemas/compare/v1.0.2...v1.0.3) (2025-02-24)
 
 
