@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import { ActivitySchema } from './activity';
 import { Metadata, MongoIdSchema, Schema, Validate } from './base';
-import { ActivityProviderGQLSchema, CreateActivityProviderInput } from '../types/graphql.types';
+import {
+  ActivityProviderGQLSchema,
+  CreateActivityProviderInput,
+} from '../types/graphql.types';
 
 export const ActivityProviderSchema = z
   .object({
