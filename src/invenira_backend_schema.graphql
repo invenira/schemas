@@ -195,7 +195,7 @@ type IAPGQLSchema {
     deployUrls: Record!,
 
     "The list of Goal included in the IAP"
-    goals: [MongoIdScalar!]!,
+    goals: [GoalGQLSchema!]!,
 
     "The timestamp when the IAP was created."
     createdAt: Date!,
