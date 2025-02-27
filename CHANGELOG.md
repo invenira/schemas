@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/invenira/schemas/compare/v1.1.0...v1.2.0) (2025-02-27)
+
+
+### Features
+
+* provide activity mutation ([b637665](https://github.com/invenira/schemas/commit/b6376650e986214d323af8dd8b842aa6087187ba))
+
 # [1.1.0](https://github.com/invenira/schemas/compare/v1.0.3...v1.1.0) (2025-02-25)
 
 

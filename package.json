@@ -1,6 +1,6 @@
 {
   "name": "@invenira/schemas",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Inven!RA Schemas and TypeScript Types",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
