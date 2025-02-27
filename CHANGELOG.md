@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/invenira/schemas/compare/v1.2.0...v1.2.1) (2025-02-27)
+
+
+### Bug Fixes
+
+* improve provide activity ([99ee281](https://github.com/invenira/schemas/commit/99ee2811df3434d670f1dd6b9d1536edc1e0df34))
+
 # [1.2.0](https://github.com/invenira/schemas/compare/v1.1.0...v1.2.0) (2025-02-27)
 
 
