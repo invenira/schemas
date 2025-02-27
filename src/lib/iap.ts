@@ -11,7 +11,7 @@ export const IAPSchema = z
     description: z.string().nonempty(),
     activityProviders: z.array(ActivityProviderSchema),
     isDeployed: z.boolean(),
-    deployUrls: z.record(z.string(), z.string().url()),
+    deployIds: z.record(z.string(), z.string().url()),
     goals: z.array(GoalSchema),
     createdAt: z.date(),
     createdBy: z.string().nonempty(),

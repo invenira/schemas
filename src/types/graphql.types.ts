@@ -88,7 +88,7 @@ export class IAPGQLSchema {
     description: string;
     activityProviders: ActivityProviderGQLSchema[];
     isDeployed: boolean;
-    deployUrls: Record;
+    deployIds: Record;
     goals: GoalGQLSchema[];
     createdAt: Date;
     createdBy: string;
@@ -138,6 +138,8 @@ export abstract class IMutation {
     abstract removeIap(iapId: MongoIdScalar): Nullable<Void> | Promise<Nullable<Void>>;
 
     abstract deployIap(iapId: MongoIdScalar): Nullable<Void> | Promise<Nullable<Void>>;
+
+    abstract provideActivity(deployId: string, lmsUserId: string): string | Promise<string>;
 }
 
 export type Record = any;
