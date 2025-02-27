@@ -33,10 +33,6 @@ export class CreateIAPInput {
     description: string;
 }
 
-export class AddActivityToIapInput {
-    activityId: string;
-}
-
 export class MetricGQLSchema {
     name: string;
     description: string;
@@ -88,7 +84,6 @@ export class IAPGQLSchema {
     description: string;
     activityProviders: ActivityProviderGQLSchema[];
     isDeployed: boolean;
-    deployIds: Record;
     goals: GoalGQLSchema[];
     createdAt: Date;
     createdBy: string;
@@ -139,7 +134,7 @@ export abstract class IMutation {
 
     abstract deployIap(iapId: MongoIdScalar): Nullable<Void> | Promise<Nullable<Void>>;
 
-    abstract provideActivity(deployId: string, lmsUserId: string): string | Promise<string>;
+    abstract provideActivity(activityId: string, lmsUserId: string): string | Promise<string>;
 }
 
 export type Record = any;

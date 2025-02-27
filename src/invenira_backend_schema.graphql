@@ -191,9 +191,6 @@ type IAPGQLSchema {
     """
     isDeployed: Boolean!,
 
-    "The deploy ID for each activity, used to request the provide activity action"
-    deployIds: Record!,
-
     "The list of Goal included in the IAP"
     goals: [GoalGQLSchema!]!,
 
@@ -219,14 +216,6 @@ input CreateIAPInput {
 
     "The IAP Description."
     description: String!,
-}
-
-"""
-The request payload to add an activity to an IAP.
-"""
-input AddActivityToIapInput {
-    "The Activity ID to add to the IAP"
-    activityId: String!,
 }
 
 type Query {
@@ -293,5 +282,5 @@ type Mutation {
     deployIap(iapId: MongoIdScalar!): Void
 
     "Requests the Activity Provider the Activity URL for a specific LMS User."
-    provideActivity(deployId: String!, lmsUserId: String!): String!
+    provideActivity(activityId: String!, lmsUserId: String!): String!
 }
