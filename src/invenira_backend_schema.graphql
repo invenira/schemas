@@ -191,8 +191,8 @@ type IAPGQLSchema {
     """
     isDeployed: Boolean!,
 
-    "The deploy URL for each activity"
-    deployUrls: Record!,
+    "The deploy ID for each activity, used to request the provide activity action"
+    deployIds: Record!,
 
     "The list of Goal included in the IAP"
     goals: [GoalGQLSchema!]!,
@@ -291,4 +291,7 @@ type Mutation {
 
     "Deploys the Inventive Activity Plan. All Activities are deployed in their Activity providers."
     deployIap(iapId: MongoIdScalar!): Void
+
+    "Requests the Activity Provider the Activity URL for a specific LMS User."
+    provideActivity(deployId: String!, lmsUserId: String!): String!
 }
